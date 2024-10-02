@@ -3,20 +3,69 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --slider-intro-duration: 4s;
+    --mc-intro-duration: 2s;
+}
+
+.slider-container {
+    animation: sliderIn var(--slider-intro-duration) ease-in;
+}
+
+@keyframes sliderIn {
+    from {
+        scale: 0;
+        opacity: 0;
+    } to {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+.tanjiro {
+    animation: mcIn var(--mc-intro-duration) ease-in-out;
+}
+
+@keyframes mcIn {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
 .slider {
-    width: 135px;
-    height: 200px;
+    width: 120px;
+    height: 170px;
     position: absolute;
     top: 10%;
     left: calc(50% - 95px);
     transform-style: preserve-3d;
     transform: 
-        perspective(2000px)
-        rotateX(-5deg);
+        perspective(1500px)
+        rotateX(0deg);
+    animation: spinCircle 30s linear infinite;
+    animation-delay: var(--intro-delay);
+}
+
+.slider:hover {
+    animation-play-state: paused;
+}
+
+@keyframes spinCircle {
+    from {
+        transform: 
+            perspective(1500px)
+            rotateY(0deg);
+    } to {
+        transform: 
+            perspective(1500px)
+            rotateY(360deg);
+    }
 }
 
 .item {
     transform: 
         rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg )) 
-        translateZ(550px);
+        translateZ(500px);
 }

@@ -9,56 +9,61 @@ export default function Home() {
             overflow-hidden
             bg-cover
         ">
-            <div className="h-full w-full">
-                <Image
-                    src={`/tanjiro.png`}
-                    width={300}
-                    height={250}
-                    alt="tanjiro"
-                    className="
-                    w-[300px]
+            <Image
+                src={`/tanjiro.png`}
+                width={300}
+                height={250}
+                alt="tanjiro"
+                className="
+                    w-[230px]
                     h-auto
+                    absolute
+                    bottom-0
+                    left-1/2 -translate-x-1/2
+                    tanjiro
                     "
-                />
-            </div>
-            <div
-                style={{ ['--quantity' as string]: 13 }}
-                className="slider"
-            >
-                {
-                    Array(13).fill(0).map((index, key) => (
-                        <div
-                            key={index + key}
-                            style={{ ['--position' as string]: key + 1 }}
-                            className="
+            />
+            <div className="slider-container">
+                <div
+                    style={{ ['--quantity' as string]: 13 }}
+                    className="slider"
+                >
+                    {
+                        Array(13).fill(0).map((index, key) => (
+                            <div
+                                key={index + key}
+                                style={{ ['--position' as string]: key + 1 }}
+                                className="
                             absolute
                             inset-0
                             item
                         ">
-                            <Image
-                                src={`/img-${key + 1}.jpg`}
-                                width={200}
-                                height={250}
-                                alt="hashira"
-                                className="
+                                <Image
+                                    src={`/img-${key + 1}.jpg`}
+                                    width={200}
+                                    height={250}
+                                    alt="hashira"
+                                    className="
                                     w-full
                                     h-full
                                     object-cover
                                 "/>
-                        </div>
-                    ))
-                }
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
+
             <div className="
                 absolute
                 bottom-10
-                right-10
+                right-32
                 text-white
-                font-bold
+                font-extralight
                 text-right
             ">
-                <h1>鬼滅の刃</h1>
-                <h2>DEMON SLAYER</h2>
+                <h1 className="text-7xl">鬼滅の刃</h1>
+                <h2 className="text-3xl">DEMON SLAYER</h2>
             </div>
         </main>
     )
