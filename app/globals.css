@@ -2,3 +2,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slider {
+    width: 135px;
+    height: 200px;
+    position: absolute;
+    top: 10%;
+    left: calc(50% - 95px);
+    transform-style: preserve-3d;
+    transform: 
+        perspective(2000px)
+        rotateX(-5deg);
+}
+
+.item {
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg )) 
+        translateZ(550px);
+}
